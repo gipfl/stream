@@ -1,7 +1,6 @@
 <?php
 
-namespace gipfl\Stream;
-
+use gipfl\Stream\BufferedLineReader;
 use gipfl\Test\AsyncTestUtils;
 use PHPUnit\Framework\TestCase;
 
