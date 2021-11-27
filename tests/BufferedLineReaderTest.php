@@ -15,9 +15,9 @@ class BufferedLineReaderTest extends TestCase
         $reader->on('line', function ($line) use (&$lines) {
             $lines[] = $line;
         });
-        $this->loop->futureTick(function () use ($reader, & $lines) {
+        $this->loop->futureTick(function () use ($reader, &$lines) {
             $reader->write("a\nb\nc\n");
-            $this->loop()->addTimer(1, function () use (& $lines) {
+            $this->loop()->addTimer(1, function () use (&$lines) {
                 $this->assertEquals(['a', 'b', 'c'], $lines);
             });
         });
